@@ -14,6 +14,7 @@ From a full source checkout with Python 3.12 or later installed:
 
 ```sh
 python -B -m unittest discover -s tests -v
+python -B bench.py demo
 ```
 
 There are no Python package dependencies. The checks include all 32 original
@@ -22,9 +23,26 @@ three explicit seeded-fault witnesses, malformed-output/timeout handling and
 digest/domain checks. The observed local run used Python 3.13.1 on Windows;
 this is not an endorsement of that old patch for deployment.
 
+Run a complete fixed/random baseline and replay its sealed results:
+
+```sh
+python -B bench.py compare --out local-results/first-run
+python -B bench.py verify-run local-results/first-run
+python -B bench.py replay local-results/first-run/fixed-17-00-gap-keeps-ready.json
+```
+
+Choose a new output directory. Each arm receives 24 candidate traces for each
+of seeds 17, 43 and 101. Each candidate runs against the original and three
+seeded variants: 288 target executions per arm, followed by separate replay
+validation. The fixed corpus intentionally repeats five known controls.
+Generation, target, oracle and artifact-write durations are recorded separately;
+actual wall time varies by machine. This command has **no AI arm**. No model
+cost, public-vulnerability count or statistical superiority is inferred.
+
 Review [the frozen experiment contract](docs/EXPERIMENT.json),
 [the oracle](faultbench/oracle.py), [controlled adapter](faultbench/target.py)
-and [source attribution](THIRD_PARTY_NOTICES.md).
+and [source attribution](THIRD_PARTY_NOTICES.md). [Artifact fields and boundaries](docs/ARTIFACTS.md)
+explain source/config drift, replay and the difference between digests and trust.
 
 The oracle covers at most 32 records of a deliberately narrow grammar:
 `D`, `S <sequence> 100 5 200 5`, or positive bid updates
