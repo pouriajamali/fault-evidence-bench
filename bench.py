@@ -4,8 +4,9 @@ import json
 from pathlib import Path
 import sys
 
-from faultbench.evidence import make_record, replay_record
+from faultbench.evidence import make_record, replay_record, write_record
 from faultbench.experiment import compare, controls, verify_run
+from faultbench.minimize import catalog_directory, minimize
 from faultbench.target import VARIANTS
 
 
@@ -19,6 +20,12 @@ def main():
     r.add_argument("artifact", type=Path)
     v = sub.add_parser("verify-run", help="freshly replay every original and seeded result in a comparison")
     v.add_argument("directory", type=Path)
+    m = sub.add_parser("minimize", help="preserve one exact failure predicate while deleting records")
+    m.add_argument("artifact", type=Path)
+    m.add_argument("--predicate", required=True)
+    m.add_argument("--out", type=Path, required=True, help="new artifact file; parent directory must exist")
+    d = sub.add_parser("catalog", help="deduplicate sealed failure records by target/predicate identity")
+    d.add_argument("directory", type=Path)
     args = parser.parse_args()
     if args.command == "demo":
         result = []
@@ -33,6 +40,13 @@ def main():
         result = compare(args.out)
     elif args.command == "replay":
         result = replay_record(json.loads(args.artifact.read_text(encoding="utf-8")))
+    elif args.command == "minimize":
+        child = minimize(json.loads(args.artifact.read_text(encoding="utf-8")), args.predicate)
+        write_record(args.out, child)
+        result = {"artifact_sha256": child["artifact_sha256"], "metadata": child["metadata"],
+                  "replay": replay_record(child)}
+    elif args.command == "catalog":
+        result = catalog_directory(args.directory)
     else:
         result = verify_run(args.directory)
     print(json.dumps(result, indent=2))

@@ -1,0 +1,71 @@
+{
+  "schema": "fault-evidence/failure-artifact/1",
+  "adapter_version": "0.1.0",
+  "target": {
+    "repository": "https://github.com/pouriajamali/book-replay-lab",
+    "commit": "7909d6ddf46e5631a0a6c586c47ab994d7b57132",
+    "variant": "gap-keeps-ready",
+    "source_sha256": "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211",
+    "license": "MIT",
+    "seeded_fault": true
+  },
+  "oracle": {
+    "version": "recovery-fold/1",
+    "source_sha256": "c98fafc51ac483f9881313a395c6ef0b88bbf622649e59a9ac9e47093a3fbb70"
+  },
+  "config": {
+    "max_records": 32,
+    "max_input_bytes": 4096,
+    "timeout_seconds": 2,
+    "max_stdout_bytes": 32768,
+    "execution": "pinned-source-and-approved-templates-only"
+  },
+  "config_sha256": "64939aea0326d2790fb4becb9773860d120b276ec65c72365720cc2125624ba1",
+  "trace": [
+    "S 10 100 5 200 5",
+    "U 12 B 101 2"
+  ],
+  "proposal_sha256": "991a4d407a50c32b2ae7b8b20df05d39207d1ec533d3249bb0fd37cb0df2949a",
+  "metadata": {
+    "lineage": {
+      "parent_artifact_sha256": "da930379333e2bdb963fbd5e61f84f128da2cc6ca2c25ac882916bec5a229b33",
+      "parent_input_sha256": "5896018fd8c79ce4acac270bb375daaf9d39a9cb9c7a63058f2e76bf6bd6a95a",
+      "selected_failure_identity": "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:readiness-mismatch"
+    },
+    "minimization": {
+      "algorithm": "greedy-delete/1",
+      "status": "ONE_MINIMAL_UNDER_SINGLE_RECORD_DELETION",
+      "attempt_budget": 256,
+      "attempts": 5,
+      "before_records": 3,
+      "after_records": 2,
+      "search_target_elapsed_ns": 455047200,
+      "search_wall_ns": 462752700,
+      "equivalence": "Same target source digest and oracle predicate; not proof of same root cause or globally shortest input."
+    }
+  },
+  "environment": {
+    "python": "3.13.1 (tags/v3.13.1:0671451, Dec  3 2024, 19:06:28) [MSC v.1942 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26100-SP0"
+  },
+  "violations": [
+    {
+      "event": 1,
+      "predicate": "readiness-mismatch",
+      "expected": false,
+      "actual": true
+    }
+  ],
+  "rows": [
+    "SNAPSHOT|1|10|100|5|200|5",
+    "GAP|1|10|100|5|200|5"
+  ],
+  "runner_elapsed_ns": 91289300,
+  "oracle_elapsed_ns": 49100,
+  "input_sha256": "379d4ef2cb29da3bb4ba5a4683847195f6c322e0a6933ad5d062ff267874ccad",
+  "outcome": "ORACLE_MISMATCH",
+  "failure_identities": [
+    "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:readiness-mismatch"
+  ],
+  "artifact_sha256": "f44b82da09dfd72175c1e584b024dc7a5e8809e8e9edb4b7a16c4ffacc3e1a91"
+}

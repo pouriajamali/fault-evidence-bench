@@ -72,3 +72,25 @@ Temporary worker files stay under `.build/` in the checkout. The adapter runs
 only the pinned source and three exact built-in mutations in fresh isolated
 Python subprocesses. It does not execute proposal text. Process time/input/output
 limits are not an OS security sandbox, memory quota or network firewall.
+
+## Minimize the same failure
+
+```sh
+python -B bench.py minimize local-results/first-run/fixed-17-00-gap-keeps-ready.json --predicate readiness-mismatch --out local-results/minimized.json
+python -B bench.py replay local-results/minimized.json
+python -B bench.py catalog local-results/first-run
+```
+
+The minimizer retains the exact target digest and selected oracle predicate,
+records the parent artifact/input digests and bounds deletion attempts at 256.
+`ONE_MINIMAL_UNDER_SINGLE_RECORD_DELETION` means no one-record deletion preserves
+that predicate within the qualified domain. It is not a globally shortest input
+or proof of identical root cause. Budget exhaustion is reported explicitly.
+[A recorded 3-to-2-record witness](evidence/P3-minimized.json) replays against
+the same seeded variant; the parent is in the P2 raw evidence archive.
+
+The minimizer/deduplication core is tested. **The full P3 phase is blocked on
+owner-controlled complement consumption**, especially the unpublished CMP-04
+evaluation-manifest version/fixtures. [Read the exact boundaries and retained
+phase gates](docs/COMPLEMENT-READINESS.md). P4/P5/P6 remain subsequent work;
+this source preview is not described as a completed AI benchmark or release.
