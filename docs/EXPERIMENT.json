@@ -1,0 +1,54 @@
+{
+  "schema": "fault-evidence-bench/experiment-contract/1",
+  "registered_on": "2026-11-23",
+  "state": "PREREGISTERED_BEFORE_AI_GENERATION",
+  "failure_family": "synthetic-book-recovery-boundary",
+  "audience": "Maintainers testing stateful recovery gates on normalized offline streams",
+  "decision": "EXTEND_EXISTING_WITH_INDEPENDENT_BENCH_ADAPTER",
+  "target": {
+    "repository": "https://github.com/pouriajamali/book-replay-lab",
+    "commit": "7909d6ddf46e5631a0a6c586c47ab994d7b57132",
+    "file": "book_replay.py",
+    "sha256": "d2063b08f0f7e4108642acded4d90434095b7bc3d4e773ddc06e817f83226513",
+    "license": "MIT; preserve original notice",
+    "selection": "Existing small Python CLI is available and audited without a compiler, package install or live service. A replay/oracle/experiment wrapper is the gap; do not replace the upstream book core or build a general-purpose fuzzer.",
+    "scope": "Python normalized teaching policy only; C++ and flat-depth experiment not evaluated. Source vendoring is limited to this exact public MIT runner and notice; upstream checkout remains unchanged."
+  },
+  "oracle": {
+    "version": "recovery-fold/1",
+    "independence": "Pure bounded transition relation on accepted sequence and readiness, based on written REPLAY_CONTRACT.md and handwritten controls. No target import, target output as expected value, price-level implementation, or model verdict.",
+    "domain": "At most 32 records: D; snapshots S q 100 5 200 5; positive bid updates U q B p z with 90<=p<=110 and 1<=z<=9; 1<=q<=1000. This domain excludes crossing, malformed lexical input and deletes, so oracle need not duplicate book price logic.",
+    "relation": "Initially (q=0, ready=false). D preserves q and clears ready. A snapshot s>=q sets (s,true); s<q preserves q and clears ready. An update while not ready preserves (q,false); while ready, s<=q preserves (q,true), s=q+1 sets (s,true), s>q+1 preserves q and clears ready.",
+    "observations": "Compare per-event reason, readiness and accepted sequence. On blocked/rejected events, also compare visible price/quantity tuple to the preceding accepted snapshot/update output as a relational atomicity check, not a full order-book correctness claim.",
+    "failure_identity": "(target-version-and-variant, predicate-version, violated-clause). Distinct traces or seeds violating the same clause in the same variant are one identity, not more bugs.",
+    "clauses": ["reason-mismatch", "readiness-mismatch", "accepted-sequence-mismatch", "rejection-state-mutation"],
+    "harness_failures": "Timeout, exit error, missing/extra/malformed output and digest mismatch are harness/adapter outcomes, not valid target bugs."
+  },
+  "seeded_faults": {
+    "scope": "Controlled mutations of the pinned runner in isolated scratch files; original source bytes never edited.",
+    "variants": ["gap-keeps-ready", "bypass-not-ready", "accept-regressing-snapshot"],
+    "discovery_limit": "Seeded artificial faults demonstrate benchmark sensitivity only. They are not new upstream bugs or independently discovered real vulnerabilities."
+  },
+  "comparison": {
+    "arms": ["fixed corpus", "seeded random bounded grammar", "recorded AI proposals through identical runner/oracle"],
+    "seeds": [17, 43, 101],
+    "execution_budget_per_arm_per_seed": {"candidate_traces": 24, "maximum_records_per_trace": 32, "maximum_bytes_per_trace": 4096, "runner_timeout_seconds": 2, "maximum_stdout_bytes": 32768},
+    "equal_budget_rule": "Same frozen target variants, oracle and execution opportunities per seed. Count every submitted candidate, including invalid/rejected proposals; never give AI unlimited retries. Report actual consumed opportunities and unfinished work.",
+    "generation_budget": "No paid API/infra or external model execution is authorized by this contract. AI comparison is not executable until a fixed model/version, prompt, token ceiling, recorded token usage, wall time, inference price/cost and human assistance are present. Unknown generation cost cannot be declared equal or free.",
+    "splits": "Freeze train/dev/holdout files and their provenance groups before any AI proposal. Group by recovery mechanism/provenance; forbid near-duplicate trace variants across groups and tuning on observed holdout results. Public holdout does not establish blind external evaluation.",
+    "metrics": ["valid unique failure identities", "false-positive claims with explicit denominator", "failure replay success with explicit denominator", "invalid proposals", "harness failures", "target and generation time", "model token/inference cost", "logging and minimization time", "human interventions"],
+    "stop_rule": "Record a valid negative result. If AI metadata/cost/budget or holdout independence is unavailable, stop/defer the AI experiment; never report an advantage from seeded fault detection or fixed baseline execution."
+  },
+  "execution_policy": {
+    "allowed_code": "Pinned public runner plus three exact built-in mutation templates only; model text is data in the bounded grammar, never executed as Python or a shell command.",
+    "network": "No adapter/network integration or network calls in the controlled runner; no claim of OS-enforced network isolation.",
+    "isolation": "Fresh subprocess, fixed argv, isolated Python mode, timeout and bounded input/output. Hostile arbitrary-code execution, strong OS sandbox/memory enforcement and production security are outside the initial qualification and must not be implied."
+  },
+  "complements": {
+    "CMP-01": {"owner": "G2", "state": "CONSUMER_SCOPE_RECEIVED; owner profile/version artifact not yet audited", "requirement": "Preserve native freshness/finality/unknown observations when adding network targets."},
+    "CMP-03": {"owner": "G2", "state": "CONSUMER_SCOPE_RECEIVED; owner profile/version artifact not yet audited", "requirement": "Preserve route trust configuration and native send/verify/execute/receive distinctions; a local book target is not cross-chain conformance."},
+    "CMP-04": {"owner": "G1", "state": "CONSUMER_SCOPE_RECEIVED; owner manifest/version artifact not yet audited", "requirement": "Validate owner manifest version, source/license/revision/cutoff and input/code/config digests. Local G4 artifact schema must not be called the implemented CMP-04 contract."},
+    "integration_rule": "Contract/fixture dependencies, not simultaneous live services. Owner-controlled integration is a separate gate; do not change ownership or fabricate compatible owner schemas."
+  },
+  "phase_status": "P0 contract only. No new benchmark implementation, AI experiment, release, CI or independent reproduction is certified by this document."
+}

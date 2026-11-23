@@ -1,0 +1,7 @@
+[
+  {"id":"gap-and-block","provenance_group":"handwritten-gap","trace":["S 10 100 5 200 5","U 12 B 101 2","U 11 B 102 3"],"expected":[["SNAPSHOT",true,10],["GAP",false,10],["NOT_READY",false,10]]},
+  {"id":"disconnect-and-recover","provenance_group":"handwritten-disconnect","trace":["S 10 100 5 200 5","D","U 11 B 101 2","S 10 100 5 200 5","U 11 B 101 2"],"expected":[["SNAPSHOT",true,10],["DISCONNECTED",false,10],["NOT_READY",false,10],["SNAPSHOT",true,10],["UPDATE",true,11]]},
+  {"id":"regressing-snapshot","provenance_group":"handwritten-regression","trace":["S 10 100 5 200 5","S 9 100 5 200 5","U 11 B 101 2","S 10 100 5 200 5","U 11 B 101 2"],"expected":[["SNAPSHOT",true,10],["STALE_SNAPSHOT",false,10],["NOT_READY",false,10],["SNAPSHOT",true,10],["UPDATE",true,11]]},
+  {"id":"stale-is-valid","provenance_group":"handwritten-valid","trace":["S 10 100 5 200 5","U 11 B 101 2","U 10 B 102 3","U 11 B 102 3"],"expected":[["SNAPSHOT",true,10],["UPDATE",true,11],["STALE",true,11],["STALE",true,11]]},
+  {"id":"initially-not-ready","provenance_group":"handwritten-initial","trace":["U 1 B 101 2","S 1 100 5 200 5","U 2 B 102 3"],"expected":[["NOT_READY",false,0],["SNAPSHOT",true,1],["UPDATE",true,2]]}
+]
