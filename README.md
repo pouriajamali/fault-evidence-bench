@@ -94,3 +94,7 @@ owner-controlled complement consumption**, especially the unpublished CMP-04
 evaluation-manifest version/fixtures. [Read the exact boundaries and retained
 phase gates](docs/COMPLEMENT-READINESS.md). P4/P5/P6 remain subsequent work;
 this source preview is not described as a completed AI benchmark or release.
+
+[Full P0–P6 status and remaining qualification gates](docs/ROADMAP.md).
+Developed with AI assistance; the separate oracle is not an external audit or
+a measured experimental AI arm.
