@@ -1,0 +1,118 @@
+{
+  "schema": "fault-evidence/p2-results/1",
+  "status": "LOCAL_REPLAY_VERIFIED",
+  "tested_source_commit": "7cb52e3c531b68174ddd09720b50a63764f0a685",
+  "archive": "p2-baseline.zip",
+  "archive_sha256": "7924837d99b84b9947cd152ad12d3f07f6391c4f196ae70928308e9b80b4fbfd",
+  "source_sha256": {
+    "bench.py": "4364b7f3c04bce281e7f9b6e4f059bccceac7270d2e37d5b8531c691bb4f72b1",
+    "faultbench/__init__.py": "202ac0f9259834d13a783f97e434b797b93d1c2c64b6ed47600ccc8d7f9c1c34",
+    "faultbench/oracle.py": "c98fafc51ac483f9881313a395c6ef0b88bbf622649e59a9ac9e47093a3fbb70",
+    "faultbench/target.py": "f99d9340fd66d4d6e9f4a8d5c5ee999d74d505897e4dd4dd9fd46fb87c80f985",
+    "faultbench/evidence.py": "04186bb12a150b2f6e6b8c1b232272d0b61cf5c899a191ae3cc6e5ce4e97bdaa",
+    "faultbench/experiment.py": "98a5bab231301103b7c933e0781d346d12937ec9ce02545417e8e59b499fa5af",
+    "corpus/controls.json": "702f0a120c6080a2d014a5f3d1d7b34e0d8388279d52f1536fa4df187d6a785f",
+    "docs/EXPERIMENT.json": "c9f49d87785bd12503d2e2a30c23e45c8b50c18da0f3ce17841865c3e795cd1b",
+    "vendor/book_replay.py": "d2063b08f0f7e4108642acded4d90434095b7bc3d4e773ddc06e817f83226513",
+    "vendor/upstream-fixtures.json": "3183c5dc80d4ebfcb0ec6de4e4a9ec5e04330db31e1b72f5cd469a96809f9e38"
+  },
+  "summary": {
+    "schema": "fault-evidence/baseline-summary/1",
+    "seeds": [
+      17,
+      43,
+      101
+    ],
+    "candidate_budget_per_seed": 24,
+    "variants": [
+      "original",
+      "gap-keeps-ready",
+      "bypass-not-ready",
+      "accept-regressing-snapshot"
+    ],
+    "arms": {
+      "fixed": {
+        "submitted_candidates": 72,
+        "target_executions": 288,
+        "outcomes": {
+          "NO_ORACLE_MISMATCH": 201,
+          "ORACLE_MISMATCH": 87
+        },
+        "unique_target_predicate_identities": [
+          "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:accepted-sequence-mismatch",
+          "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:readiness-mismatch",
+          "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:reason-mismatch",
+          "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:accepted-sequence-mismatch",
+          "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:readiness-mismatch",
+          "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:reason-mismatch",
+          "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:rejection-state-mutation",
+          "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:accepted-sequence-mismatch",
+          "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:readiness-mismatch",
+          "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:reason-mismatch",
+          "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:rejection-state-mutation"
+        ],
+        "original_target_mismatches": 0,
+        "original_target_runs": 72,
+        "target_elapsed_ns": 26572764700,
+        "oracle_elapsed_ns": 18260700,
+        "generation_elapsed_ns": 647400,
+        "artifact_write_elapsed_ns": 140176000
+      },
+      "random": {
+        "submitted_candidates": 72,
+        "target_executions": 288,
+        "outcomes": {
+          "NO_ORACLE_MISMATCH": 198,
+          "ORACLE_MISMATCH": 90
+        },
+        "unique_target_predicate_identities": [
+          "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:accepted-sequence-mismatch",
+          "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:readiness-mismatch",
+          "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:reason-mismatch",
+          "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:rejection-state-mutation",
+          "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:accepted-sequence-mismatch",
+          "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:readiness-mismatch",
+          "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:reason-mismatch",
+          "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:rejection-state-mutation",
+          "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:accepted-sequence-mismatch",
+          "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:readiness-mismatch",
+          "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:reason-mismatch",
+          "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:rejection-state-mutation"
+        ],
+        "original_target_mismatches": 0,
+        "original_target_runs": 72,
+        "target_elapsed_ns": 27506049000,
+        "oracle_elapsed_ns": 20339400,
+        "generation_elapsed_ns": 471400,
+        "artifact_write_elapsed_ns": 120207500
+      }
+    },
+    "corpus_sha256": "702f0a120c6080a2d014a5f3d1d7b34e0d8388279d52f1536fa4df187d6a785f",
+    "generator_source_sha256": "98a5bab231301103b7c933e0781d346d12937ec9ce02545417e8e59b499fa5af",
+    "total_wall_ns": 55762487100,
+    "ai_arm": "NOT_RUN",
+    "ai_tokens": null,
+    "ai_cost": null,
+    "claim_scope": "Descriptive artificial-fault sensitivity only; opportunities/caps matched, actual times reported. Duplicate predicates are deduplicated per target variant, not counted as distinct upstream bugs. No statistical or AI-advantage claim. Fixed arm intentionally repeats five known controls; samples are not independent.",
+    "replay_validation": "Separate verify-run command; verification is outside search opportunity budget."
+  },
+  "replay": {
+    "passed": true,
+    "arms": {
+      "fixed": {
+        "checked": 288,
+        "failures": 87,
+        "reproduced_failures": 87,
+        "consistent": 288
+      },
+      "random": {
+        "checked": 288,
+        "failures": 90,
+        "reproduced_failures": 90,
+        "consistent": 288
+      }
+    },
+    "limit": "Fresh local replay by the same operator; not independent external reproduction or review."
+  },
+  "limits": "Same operator local replay; synthetic seeded faults only. No AI arm, external reproduction, hardened sandbox, protocol conformance or release certification."
+}

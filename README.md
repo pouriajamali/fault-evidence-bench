@@ -54,8 +54,16 @@ framing errors and invalid proposals are separate harness outcomes, not bugs.
 
 ## Development gates
 
-P0 baseline/experiment definition and P1 bounded corpus/oracle are locally
-verified. P2 replay artifacts and fixed/random comparison, P3 minimization and
+P0 baseline/experiment definition, P1 bounded corpus/oracle and P2 replay
+artifacts/fixed-random baseline are verified within their stated scope.
+P2 source [`7cb52e3`](https://github.com/pouriajamali/fault-evidence-bench/commit/7cb52e3c531b68174ddd09720b50a63764f0a685)
+passed [Windows/Linux CI](https://github.com/pouriajamali/fault-evidence-bench/actions/runs/45191646776).
+[Recorded results](evidence/P2-results.json) include code digests and the checksum
+of [all 576 raw artifacts and replay evidence](evidence/p2-baseline.zip).
+Each arm had 72 original-target controls with zero oracle mismatches;
+87 fixed-arm and 90 random-arm seeded failures all replayed. These counts are
+artificial-fault observations, not distinct bugs or evidence of AI superiority.
+P3 minimization and
 owner-controlled CMP-01/03/04 integration, P4 cost-controlled AI evaluation,
 P5 execution hardening and P6 independent reproduction remain subsequent
 gates. A public source commit is not a tested release or independent use.
