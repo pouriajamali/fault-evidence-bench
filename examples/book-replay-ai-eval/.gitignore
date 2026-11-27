@@ -1,0 +1,6 @@
+/.cli/
+/bin/
+/obj/
+/__pycache__/
+/vendor_snapshot/
+/local-results*/

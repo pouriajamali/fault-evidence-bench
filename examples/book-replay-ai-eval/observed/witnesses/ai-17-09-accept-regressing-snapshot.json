@@ -1,0 +1,85 @@
+{
+  "schema": "fault-evidence/failure-artifact/1",
+  "adapter_version": "0.1.0",
+  "target": {
+    "repository": "https://github.com/pouriajamali/book-replay-lab",
+    "commit": "7909d6ddf46e5631a0a6c586c47ab994d7b57132",
+    "variant": "accept-regressing-snapshot",
+    "source_sha256": "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6",
+    "license": "MIT",
+    "seeded_fault": true
+  },
+  "oracle": {
+    "version": "recovery-fold/1",
+    "source_sha256": "c98fafc51ac483f9881313a395c6ef0b88bbf622649e59a9ac9e47093a3fbb70"
+  },
+  "config": {
+    "max_records": 32,
+    "max_input_bytes": 4096,
+    "timeout_seconds": 2,
+    "max_stdout_bytes": 32768,
+    "execution": "pinned-source-and-approved-templates-only"
+  },
+  "config_sha256": "64939aea0326d2790fb4becb9773860d120b276ec65c72365720cc2125624ba1",
+  "trace": [
+    "S 42 100 5 200 5",
+    "U 45 B 108 9",
+    "S 44 100 5 200 5",
+    "U 45 B 95 2",
+    "D",
+    "S 44 100 5 200 5",
+    "S 45 100 5 200 5",
+    "U 46 B 99 4"
+  ],
+  "proposal_sha256": "6fac1af2d3cabc1a56bf166d66603943d12bf5fc72fff9fda5a7aa32820865bc",
+  "metadata": {
+    "arm": "ai",
+    "seed": 17,
+    "candidate": 9,
+    "candidate_budget": 24
+  },
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "violations": [
+    {
+      "event": 5,
+      "predicate": "reason-mismatch",
+      "expected": "STALE_SNAPSHOT",
+      "actual": "SNAPSHOT"
+    },
+    {
+      "event": 5,
+      "predicate": "readiness-mismatch",
+      "expected": false,
+      "actual": true
+    },
+    {
+      "event": 5,
+      "predicate": "accepted-sequence-mismatch",
+      "expected": 45,
+      "actual": 44
+    }
+  ],
+  "rows": [
+    "SNAPSHOT|1|42|100|5|200|5",
+    "GAP|0|42|100|5|200|5",
+    "SNAPSHOT|1|44|100|5|200|5",
+    "UPDATE|1|45|100|5|200|5",
+    "DISCONNECTED|0|45|100|5|200|5",
+    "SNAPSHOT|1|44|100|5|200|5",
+    "SNAPSHOT|1|45|100|5|200|5",
+    "UPDATE|1|46|100|5|200|5"
+  ],
+  "runner_elapsed_ns": 56226900,
+  "oracle_elapsed_ns": 85300,
+  "input_sha256": "8323a0bcb4f2acb74794492f2eb5c42dea0c9292ebab6edd456c4bd06df98968",
+  "outcome": "ORACLE_MISMATCH",
+  "failure_identities": [
+    "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:accepted-sequence-mismatch",
+    "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:readiness-mismatch",
+    "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:reason-mismatch"
+  ],
+  "artifact_sha256": "920abff20cf18518580f60cd1d8fc2aca8fdcc895ee78dd14b9f4893bee5976f"
+}

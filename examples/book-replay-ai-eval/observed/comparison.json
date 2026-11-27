@@ -1,0 +1,436 @@
+{
+  "runtime": "11.0.0",
+  "arms": {
+    "fixed": {
+      "schema": "local-book-replay-arm/1",
+      "arm": "fixed",
+      "submitted": 72,
+      "executions": 288,
+      "invalid": 0,
+      "outcomes": {
+        "NO_ORACLE_MISMATCH": 201,
+        "ORACLE_MISMATCH": 87
+      },
+      "unique_inputs": 5,
+      "event_records": 291,
+      "original_runs": 72,
+      "original_mismatches": 0,
+      "seeded_variants_detected": [
+        "accept-regressing-snapshot",
+        "bypass-not-ready",
+        "gap-keeps-ready"
+      ],
+      "failure_identities": [
+        "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:accepted-sequence-mismatch",
+        "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:readiness-mismatch",
+        "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:reason-mismatch",
+        "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:accepted-sequence-mismatch",
+        "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:readiness-mismatch",
+        "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:reason-mismatch",
+        "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:rejection-state-mutation",
+        "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:accepted-sequence-mismatch",
+        "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:readiness-mismatch",
+        "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:reason-mismatch",
+        "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:rejection-state-mutation"
+      ],
+      "adjacent_pair_witnesses": {
+        "DISCONNECTED -\u003E NOT_READY": [
+          17,
+          1
+        ],
+        "GAP -\u003E NOT_READY": [
+          17,
+          0
+        ],
+        "NOT_READY -\u003E SNAPSHOT": [
+          17,
+          1
+        ],
+        "SNAPSHOT -\u003E DISCONNECTED": [
+          17,
+          1
+        ],
+        "SNAPSHOT -\u003E GAP": [
+          17,
+          0
+        ],
+        "SNAPSHOT -\u003E STALE_SNAPSHOT": [
+          17,
+          2
+        ],
+        "SNAPSHOT -\u003E UPDATE": [
+          17,
+          1
+        ],
+        "STALE -\u003E STALE": [
+          17,
+          3
+        ],
+        "STALE_SNAPSHOT -\u003E NOT_READY": [
+          17,
+          2
+        ],
+        "UPDATE -\u003E STALE": [
+          17,
+          3
+        ]
+      },
+      "target_commit": "7909d6ddf46e5631a0a6c586c47ab994d7b57132",
+      "input_file_sha256": "92e88d8ba74f49d8d059fbcd65af575485892e8450e1d761e353252ec47a5ada",
+      "target_ns": 15878675200,
+      "wall_ns": 17606692100,
+      "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+    },
+    "random": {
+      "schema": "local-book-replay-arm/1",
+      "arm": "random",
+      "submitted": 72,
+      "executions": 288,
+      "invalid": 0,
+      "outcomes": {
+        "NO_ORACLE_MISMATCH": 198,
+        "ORACLE_MISMATCH": 90
+      },
+      "unique_inputs": 72,
+      "event_records": 494,
+      "original_runs": 72,
+      "original_mismatches": 0,
+      "seeded_variants_detected": [
+        "accept-regressing-snapshot",
+        "bypass-not-ready",
+        "gap-keeps-ready"
+      ],
+      "failure_identities": [
+        "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:accepted-sequence-mismatch",
+        "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:readiness-mismatch",
+        "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:reason-mismatch",
+        "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:rejection-state-mutation",
+        "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:accepted-sequence-mismatch",
+        "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:readiness-mismatch",
+        "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:reason-mismatch",
+        "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:rejection-state-mutation",
+        "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:accepted-sequence-mismatch",
+        "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:readiness-mismatch",
+        "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:reason-mismatch",
+        "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:rejection-state-mutation"
+      ],
+      "adjacent_pair_witnesses": {
+        "DISCONNECTED -\u003E DISCONNECTED": [
+          17,
+          6
+        ],
+        "DISCONNECTED -\u003E NOT_READY": [
+          17,
+          0
+        ],
+        "DISCONNECTED -\u003E SNAPSHOT": [
+          17,
+          8
+        ],
+        "DISCONNECTED -\u003E STALE_SNAPSHOT": [
+          17,
+          0
+        ],
+        "GAP -\u003E DISCONNECTED": [
+          17,
+          3
+        ],
+        "GAP -\u003E NOT_READY": [
+          17,
+          1
+        ],
+        "GAP -\u003E SNAPSHOT": [
+          101,
+          3
+        ],
+        "NOT_READY -\u003E DISCONNECTED": [
+          17,
+          3
+        ],
+        "NOT_READY -\u003E NOT_READY": [
+          17,
+          3
+        ],
+        "NOT_READY -\u003E SNAPSHOT": [
+          17,
+          1
+        ],
+        "NOT_READY -\u003E STALE_SNAPSHOT": [
+          17,
+          0
+        ],
+        "SNAPSHOT -\u003E DISCONNECTED": [
+          17,
+          2
+        ],
+        "SNAPSHOT -\u003E GAP": [
+          17,
+          1
+        ],
+        "SNAPSHOT -\u003E SNAPSHOT": [
+          17,
+          2
+        ],
+        "SNAPSHOT -\u003E STALE": [
+          17,
+          0
+        ],
+        "SNAPSHOT -\u003E STALE_SNAPSHOT": [
+          17,
+          5
+        ],
+        "SNAPSHOT -\u003E UPDATE": [
+          17,
+          1
+        ],
+        "STALE -\u003E DISCONNECTED": [
+          17,
+          0
+        ],
+        "STALE -\u003E GAP": [
+          17,
+          4
+        ],
+        "STALE -\u003E SNAPSHOT": [
+          17,
+          13
+        ],
+        "STALE -\u003E STALE": [
+          17,
+          9
+        ],
+        "STALE -\u003E STALE_SNAPSHOT": [
+          17,
+          20
+        ],
+        "STALE -\u003E UPDATE": [
+          17,
+          13
+        ],
+        "STALE_SNAPSHOT -\u003E DISCONNECTED": [
+          17,
+          0
+        ],
+        "STALE_SNAPSHOT -\u003E NOT_READY": [
+          17,
+          5
+        ],
+        "STALE_SNAPSHOT -\u003E STALE_SNAPSHOT": [
+          17,
+          10
+        ],
+        "UPDATE -\u003E DISCONNECTED": [
+          101,
+          7
+        ],
+        "UPDATE -\u003E GAP": [
+          17,
+          13
+        ],
+        "UPDATE -\u003E SNAPSHOT": [
+          17,
+          7
+        ],
+        "UPDATE -\u003E STALE": [
+          17,
+          13
+        ],
+        "UPDATE -\u003E STALE_SNAPSHOT": [
+          43,
+          21
+        ],
+        "UPDATE -\u003E UPDATE": [
+          17,
+          1
+        ]
+      },
+      "target_commit": "7909d6ddf46e5631a0a6c586c47ab994d7b57132",
+      "input_file_sha256": "92e88d8ba74f49d8d059fbcd65af575485892e8450e1d761e353252ec47a5ada",
+      "target_ns": 15928062800,
+      "wall_ns": 17650127900,
+      "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+    },
+    "ai": {
+      "schema": "local-book-replay-arm/1",
+      "arm": "ai",
+      "submitted": 72,
+      "executions": 288,
+      "invalid": 0,
+      "outcomes": {
+        "NO_ORACLE_MISMATCH": 180,
+        "ORACLE_MISMATCH": 108
+      },
+      "unique_inputs": 72,
+      "event_records": 464,
+      "original_runs": 72,
+      "original_mismatches": 0,
+      "seeded_variants_detected": [
+        "accept-regressing-snapshot",
+        "bypass-not-ready",
+        "gap-keeps-ready"
+      ],
+      "failure_identities": [
+        "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:accepted-sequence-mismatch",
+        "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:readiness-mismatch",
+        "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:reason-mismatch",
+        "88b913655fa515a6d4f6835f3d0069a1063233f4404720731bb12b077b7370a6:recovery-fold/1:rejection-state-mutation",
+        "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:accepted-sequence-mismatch",
+        "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:readiness-mismatch",
+        "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:reason-mismatch",
+        "e2d8d1524ab740e84a0a34c192a381faf2ee0cbf8505cfc04cea2d9ea012d211:recovery-fold/1:rejection-state-mutation",
+        "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:accepted-sequence-mismatch",
+        "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:readiness-mismatch",
+        "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:reason-mismatch",
+        "ff46d5c2c011954d29b497f31d603de7c07c8a78938c77149d25630606249e1c:recovery-fold/1:rejection-state-mutation"
+      ],
+      "adjacent_pair_witnesses": {
+        "DISCONNECTED -\u003E DISCONNECTED": [
+          17,
+          3
+        ],
+        "DISCONNECTED -\u003E NOT_READY": [
+          17,
+          5
+        ],
+        "DISCONNECTED -\u003E SNAPSHOT": [
+          17,
+          3
+        ],
+        "DISCONNECTED -\u003E STALE_SNAPSHOT": [
+          17,
+          9
+        ],
+        "GAP -\u003E DISCONNECTED": [
+          17,
+          17
+        ],
+        "GAP -\u003E NOT_READY": [
+          17,
+          7
+        ],
+        "GAP -\u003E SNAPSHOT": [
+          17,
+          9
+        ],
+        "GAP -\u003E STALE_SNAPSHOT": [
+          17,
+          16
+        ],
+        "NOT_READY -\u003E DISCONNECTED": [
+          17,
+          12
+        ],
+        "NOT_READY -\u003E NOT_READY": [
+          17,
+          5
+        ],
+        "NOT_READY -\u003E SNAPSHOT": [
+          17,
+          4
+        ],
+        "NOT_READY -\u003E STALE_SNAPSHOT": [
+          43,
+          10
+        ],
+        "SNAPSHOT -\u003E DISCONNECTED": [
+          17,
+          3
+        ],
+        "SNAPSHOT -\u003E GAP": [
+          17,
+          7
+        ],
+        "SNAPSHOT -\u003E SNAPSHOT": [
+          17,
+          13
+        ],
+        "SNAPSHOT -\u003E STALE": [
+          17,
+          6
+        ],
+        "SNAPSHOT -\u003E STALE_SNAPSHOT": [
+          17,
+          20
+        ],
+        "SNAPSHOT -\u003E UPDATE": [
+          17,
+          4
+        ],
+        "STALE -\u003E DISCONNECTED": [
+          17,
+          11
+        ],
+        "STALE -\u003E GAP": [
+          17,
+          23
+        ],
+        "STALE -\u003E SNAPSHOT": [
+          101,
+          21
+        ],
+        "STALE -\u003E STALE": [
+          43,
+          9
+        ],
+        "STALE -\u003E STALE_SNAPSHOT": [
+          17,
+          10
+        ],
+        "STALE -\u003E UPDATE": [
+          17,
+          6
+        ],
+        "STALE_SNAPSHOT -\u003E DISCONNECTED": [
+          17,
+          14
+        ],
+        "STALE_SNAPSHOT -\u003E NOT_READY": [
+          17,
+          8
+        ],
+        "STALE_SNAPSHOT -\u003E SNAPSHOT": [
+          17,
+          9
+        ],
+        "STALE_SNAPSHOT -\u003E STALE_SNAPSHOT": [
+          17,
+          8
+        ],
+        "UPDATE -\u003E DISCONNECTED": [
+          17,
+          9
+        ],
+        "UPDATE -\u003E GAP": [
+          17,
+          15
+        ],
+        "UPDATE -\u003E SNAPSHOT": [
+          17,
+          13
+        ],
+        "UPDATE -\u003E STALE": [
+          17,
+          6
+        ],
+        "UPDATE -\u003E STALE_SNAPSHOT": [
+          17,
+          8
+        ],
+        "UPDATE -\u003E UPDATE": [
+          17,
+          21
+        ]
+      },
+      "target_commit": "7909d6ddf46e5631a0a6c586c47ab994d7b57132",
+      "input_file_sha256": "92e88d8ba74f49d8d059fbcd65af575485892e8450e1d761e353252ec47a5ada",
+      "target_ns": 15875063900,
+      "wall_ns": 17644875700,
+      "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+    }
+  },
+  "extraFailureSignatures": [],
+  "extraScenarioPairs": [
+    "GAP -\u003E STALE_SNAPSHOT",
+    "STALE_SNAPSHOT -\u003E SNAPSHOT"
+  ]
+}

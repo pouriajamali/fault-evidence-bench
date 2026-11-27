@@ -8,6 +8,14 @@ The first failure family is recovery gating after gaps, disconnects and regressi
 
 This repository contains public synthetic material only. It does not require an account, wallet, service, paid model or market data. Full phase gates and runnable documentation will accompany implementation.
 
+## Reproduce the exploratory AI comparison
+
+The [Book Replay AI experiment](examples/book-replay-ai-eval/) contains the .NET
+11 coordinator, all 72 recorded AI inputs, the measured comparison and replayable
+witnesses used in the [public Book Recovery demo](https://pouriajamali.site/playground/book-recovery/).
+It is a bounded replay of a contextual Codex batch with matched target execution
+budgets. The repository’s formal AI evaluation gates remain as documented below.
+
 ## Run the qualified checks
 
 From a full source checkout with Python 3.12 or later installed:

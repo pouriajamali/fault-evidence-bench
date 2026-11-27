@@ -1,0 +1,13 @@
+# Local exploratory AI arm, frozen before generating its cases
+
+Use the Book Replay Python runner at `7909d6ddf46e5631a0a6c586c47ab994d7b57132` and the unchanged Fault Evidence Bench evaluator at `7cb52e3c531b68174ddd09720b50a63764f0a685`. The fixed and random arms use the published generators. Run all three arms locally against the original and the same three seeded variants.
+
+Each arm has 24 candidate slots per group and three groups (17, 43, 101), so 72 slots and up to 288 executions. The group numbers are actual PRNG seeds for random and labels for the AI batch. Each candidate is capped by the original 32-event / 4096-ASCII-byte grammar and the original runner has a two-second cutoff. Rejected slots receive no replacements. Fixed and seed-random candidates, AI candidates, all raw results and supplementary witness replays are distinguishable by path.
+
+Primary readout: exact set of (target variant, frozen oracle version, failed rule) signatures, and the set difference versus the union of fixed and random. Count mismatches, seeded variants hit, original-target mismatches, invalid inputs and harness errors separately. Secondary readout: exact sets of ordered adjacent expected-outcome pairs from the reference state machine on valid traces, across each full arm. New pairs mean exercised scenarios, not necessarily newly detected faults. Where possible, replay one witness for a new scenario separately from the search budget.
+
+One batch from the model driving this Codex session, no external API or paid infrastructure, no manual edits based on results. The model has access to context about this public benchmark, so this is an exploratory run and not a blind independent holdout or a test of a particular separately identified model version. Inference tokens, price and true inference wall time are unavailable. Equal budgets mean equal target-execution opportunities and per-input caps. No model-cost or human-effort comparison is in scope. AI text supplies only candidate input records, not executable code or the result oracle.
+
+## Generation brief
+
+Produce exactly 72 normalized synthetic traces in three groups of 24 for a stateful market-data replay exercise. Emit JSON matching the group labels. A record is `D`, `S <seq> 100 5 200 5`, or `U <seq> B <price> <qty>`; sequence is 1–1000, bid 90–110, quantity 1–9. Make each history 1–32 records. Cover different combinations of initial state, repeated and out-of-order updates, reset boundaries, failed recovery, re-entry, and sequence bounds. Include both short and multi-stage cases. Use only the grammar and bounded synthetic data. Provide no outcome, code, or pass/fail verdict.

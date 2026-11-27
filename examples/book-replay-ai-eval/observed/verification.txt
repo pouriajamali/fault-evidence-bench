@@ -1,0 +1,3 @@
+PASS artifact inventory, source hashes and candidate binding: 864
+PASS GAP -> STALE_SNAPSHOT: 17/16 replayed on all 4 targets; {'original': 'NO_ORACLE_MISMATCH', 'gap-keeps-ready': 'ORACLE_MISMATCH', 'bypass-not-ready': 'NO_ORACLE_MISMATCH', 'accept-regressing-snapshot': 'ORACLE_MISMATCH'}
+PASS STALE_SNAPSHOT -> SNAPSHOT: 17/09 replayed on all 4 targets; {'original': 'NO_ORACLE_MISMATCH', 'gap-keeps-ready': 'ORACLE_MISMATCH', 'bypass-not-ready': 'NO_ORACLE_MISMATCH', 'accept-regressing-snapshot': 'ORACLE_MISMATCH'}
